@@ -1,2 +1,2 @@
 # inboxmailer
-Intialized the project and Deigned he login page 
+Intialized the project and Designed he login page 
