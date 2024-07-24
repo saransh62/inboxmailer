@@ -19,6 +19,15 @@ module.exports = {
         13: '3.25rem',
         14: '3.5rem',
       },
+      fontFamily: {
+        'dm-sans': ['DM Sans', 'sans-serif'],
+      },
+      fontSize: {
+        'xl-2': '24px',
+      },
+      lineHeight: {
+        'custom': '36.53px',
+      },
       colors: {
         primary: {
           100: '#19D87E',
@@ -35,6 +44,10 @@ module.exports = {
           200:'#111214',
           300:'#121212',
           400:'#25262B',
+          500:'#25262B',
+          600:'#5C5F66',
+          700:'#101113',
+          800:'#1F1F1F',
         },
         btmcolor:{
           100:'#4B63DD',

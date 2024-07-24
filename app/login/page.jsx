@@ -3,29 +3,24 @@ import React from "react";
 
 const Login = () => {
 
-  const SignupwithGoogle=async()=>{
-    const response = await fetch(
-      `https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=https://frontend.com`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "Application/json",
-         "Content-Type": "Application/json",
-        },
-      }
-    )
-    const data = await response.json()
-    console.log(data)
-  }
+  const redirectToGoogle = () => {
+    const clientId = '353256760825-a1evig9h3b4f3mfdd2u0dvlqvtir07ib.apps.googleusercontent.com';
+    const redirectUri = 'https://hiring.reachinbox.xyz/api/v1/auth/google-login/callback';
+    const scope = 'profile email';
+    const state = encodeURIComponent(JSON.stringify({ redirectTo: 'https://frontend.com' }));
+    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scope)}&state=${state}&client_id=${clientId}`;
+  
+    window.location.href = authUrl;
+  };
   return (
     <section>
-      <header className="flex items-center justify-center p-4 h-[15vh]">
+      <header className="flex items-center justify-center p-4 h-[8vh] border-2 border-secondary-200">
         <img src="/images/Logo.png" alt="Logo" className="w-48 "></img>
       </header>
-      <div className="flex items-center justify-center flex-col h-[78vh]">
+      <div className="flex items-center justify-center flex-col h-[89vh]">
         <div className="bg-secondary-200 border-secondary-100 border-solid rounded-xl p-8 pl-12 pr-12 flex items-center justify-center flex-col border-2">
-          <h1 className="font-bold text-xl p-2">Create a new account</h1>
-          <div className="flex items-center justify-center w-96 p-2 gap-4 mt-4  border-secondary-100 border-solid border-2 rounded-lg " onClick={SignupwithGoogle}>
+          <h1 className="font-bold text-xl p-2 font-sans">Create a new account</h1>
+          <div className="flex items-center justify-center w-96 p-2 gap-4 mt-4  border-secondary-100 border-solid border-2 rounded-xl " onClick={redirectToGoogle}>
             <svg
               width="25"
               height="33"
@@ -70,14 +65,14 @@ const Login = () => {
                 </clipPath>
               </defs>
             </svg>
-            <p className="" >Sign up with Google</p>
+            <p className="font-light" >Sign up with Google</p>
           </div>
-          <button className="mt-12 bg-blue-600 p-4 w-72 bg-gradient-to-r from-btmcolor-100 to-btmcolor-200">Create an Account</button>
-          <p className="mt-4">Alreay have an Account? <a className="text-inherit ">Sign In</a></p>
+          <button className="mt-12 bg-blue-600 p-4 w-72 bg-gradient-to-r from-btmcolor-100 to-btmcolor-200 rounded-lg">Create an Account</button>
+          <p className="mt-4 font-sans">Alreay have an Account? <a className="text-inherit font-sans">Sign In</a></p>
         </div>
       </div>
-      <footer className="bg-secondary-400 flex items-center justify-center p-4 h-[7vh]">
-        <p className="font-light">© 2023 Reachinbox. All rights reserved.</p>
+      <footer className="bg-secondary-400 flex items-center justify-center p-1 h-[3vh] border-secondary-400 border-t-2">
+        <p className="font-light text-secondary-600 font-sans">© 2023 Reachinbox. All rights reserved.</p>
       </footer>
     </section>
   );
