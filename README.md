@@ -1,2 +1,2 @@
 # inboxmailer
-Intialized the project and Designed he login page 
+Finished Authenticating The login page and Added Home Page Design
